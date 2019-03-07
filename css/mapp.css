@@ -42,3 +42,14 @@ a div.btn{
 	color: #333 !important;
 }
 
+.ui-btn.ui-radio-off:after{
+	display:none !important;
+}
+
+.ui-btn.ui-radio-on:after {
+	display:none !important;
+	}
+.ui-btn.ui-radio-on {
+	background: red;
+	}
+
