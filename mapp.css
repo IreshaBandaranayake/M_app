@@ -1,0 +1,23 @@
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 3px 6px 13px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  border-radius: 8px;
+}
+
+a{
+  text-decoration: none;
+}
+
+a div.btn{
+    text-align: center;
+    padding: 15px 20px;
+    background-color: black;
+    color: #fff;
+}
