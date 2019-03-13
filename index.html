@@ -48,7 +48,7 @@ s.parentNode.insertBefore(hm, s);
        </div>  -->
 	   
 	   <div role = "main" class = "ui-content">
-          <fieldset data-role="controlgroup">
+          <fieldset data-role="controlgroup" id="rd-age">
             <legend ><font face="Techfurk AAAmali" >Q - A1 ඔබ විසින් ඔබේ දරුවාට ආහාර ලබාදීම තෝරාගත් එක් නිශ්චිත ස්ථානයකදී සිදුකරයි.(උදාහරණ - පැදුරක් මත, පුටුවක වාඩිවී, සෙල්ලම් ගෙය තුල ආදී ) </font></legend>
               <input type="radio" id="rd-age-1" name="rd-age" value="0" required>
               <label for="rd-age-1"><font face="Techfurk AAAmali" >(i) ඔව් </font></label>        
@@ -57,7 +57,7 @@ s.parentNode.insertBefore(hm, s);
               
           </fieldset>
           <!--<a href = "#page2"><div class="btn w3-button w3-white w3-border w3-round-large">ඊළග ප්‍රශ්නය >></div></a> -->
-		  <a href="#page2" data-role="button">ඊළග ප්‍රශ්නය >></a>
+		  <a href="#page2" data-role="button" onclick="return GetValue('rd-age')">ඊළග ප්‍රශ්නය >></a>
        </div>
        
     <!--   <div data-role = "footer">
@@ -73,14 +73,14 @@ s.parentNode.insertBefore(hm, s);
        </div>
        
        <div role = "main" class = "ui-content">
-          <fieldset data-role="controlgroup">
+          <fieldset data-role="controlgroup" id="rd-gender">
             <legend>Q - A2 ඔබ විසින් ඔබේ දරුවාට ආහාර ලබාදීම තෝරාගත් එක් නිශ්චිත ස්ථානයකදී සිදුකරයි.</legend>
-              <input type="radio" name="gender" id="male" value="3" required>
+              <input type="radio" name="rd-gender" id="male" value="3" required>
               <label for="male">(i) ඔව් </label>
-              <input type="radio" name="gender" id="female" value="0" required>
+              <input type="radio" name="rd-gender" id="female" value="0" required>
               <label for="female">(ii) නැත</label>   
             </fieldset>
-           <a href="#page3" data-role="button">ඊළග ප්‍රශ්නය >></a>
+           <a href="#page3" data-role="button" onclick="return GetValue('rd-gender')">ඊළග ප්‍රශ්නය >></a>
 		   <a href="#page1" data-role="button"><< ආපසු </a>
        </div>
       
@@ -96,14 +96,14 @@ s.parentNode.insertBefore(hm, s);
        </div>
        
        <div role = "main" class = "ui-content">
-          <fieldset data-role="controlgroup">
+          <fieldset data-role="controlgroup" id="rd-relation">
             <legend>Q - A3 ඔබ විසින් ඔබේ දරුවාට ආහාර ලබාදීම තෝරාගත් එක් නිශ්චිත ස්ථානයකදී සිදුකරයි.</legend>
               <input type="radio" id="rd-relation-1" name="rd-relation" value="3" required>
               <label for="rd-relation-1">(i) ඔව්</label>  
               <input type="radio" id="rd-relation-2" name="rd-relation" value="0" required>
               <label for="rd-relation-2">(ii) නැත</label>
           </fieldset>
-                   <a href="#page3" data-role="button">ඊළග ප්‍රශ්නය >></a>
+                   <a href="#page4" data-role="button" onclick="return GetValue('rd-relation')">ඊළග ප්‍රශ්නය >></a>
 		           <a href="#page2" data-role="button"><< ආපසු </a>
        </div>
       
@@ -114,6 +114,104 @@ s.parentNode.insertBefore(hm, s);
        <!--<div data-role = "footer">
           <h4>Footer3</h4>
        </div> -->
+	   
+	    <div data-role = "page" id = "page4">
+       <div data-role = "header" style="background-color:#333;">
+       
+		  <a href="index.html" data-role="button" data-theme="a" style="background-color:#333; color:#fff;">Home</a>
+          <h1><font face="Techfurk AAAmali" > පියවර  4</font></h1>
+       </div>
+       
+       <div role = "main" class = "ui-content">
+          <fieldset data-role="controlgroup" id="rd-team">
+            <legend>Q - A4 ඔබ විසින් ඔබේ දරුවාට ආහාර ලබාදීම තෝරාගත් එක් නිශ්චිත ස්ථානයකදී සිදුකරයි.</legend>
+              <input type="radio" id="rd-team-1" name="rd-team" class="rd-team" value="3" required>
+              <label for="rd-team-1">(i) ඔව්</label>  
+              <input type="radio" id="rd-team-2" name="rd-team" class="rd-team" value="0" required>
+              <label for="rd-team-2">(ii) නැත</label>
+          </fieldset>
+                   
+		           <a href="#page3" data-role="button"><< ආපසු </a>
+				   <button type="submit" class="btn btn-primary" id="totalScore" onclick="return GetTotal('rd-team')">Submit</button>
+       </div>
+      
+	   
+       
     </div>
+    <div data-role = "page" id = "page5">
+       <div data-role = "header" style="background-color:#333;">
+       
+      <a href="index.html" data-role="button" data-theme="a" style="background-color:#333; color:#fff;">Home</a>
+          <h1><font face="" >Your Risk Level</font></h1>
+       </div>
+       
+       <div role = "main" class = "ui-content">
+          <div id="total"></div>
+		  <div>If you have high risklevel you have to refer.......</div>
+       </div>
+      
+     
+       
+    </div>
+	   
+    </div>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<!-- <script type="text/javascript" src="cordova.js"></script> -->
+	<script>
+    var total=0;
+    function GetValue(classname)
+    {
+      var radios =document.getElementsByName(classname);
+      for (var i = 0, length = radios.length; i < length; i++)
+      {
+       if (radios[i].checked)
+       {
+        // do whatever you want with the checked radio
+         // alert(radios[i].value);
+        total += Number(radios[i].value);
+
+        // only one radio can be logically checked, don't check the rest
+        break;
+       }
+      }
+    }
+
+    function GetTotal(classname)
+    {
+      GetValue(classname);
+	   if(total <= 10){
+      document.getElementById("total").innerHTML = "<p>total score is "+total+" </br> Your Risk Level is Low</p>";
+	  }
+	  else if(total > 10 && total <= 15){
+	  document.getElementById("total").innerHTML = "<p>total score is "+total+" </br> Your Risk Level is intermediate </p>";
+	  }
+	  else{
+	  document.getElementById("total").innerHTML = "<p>total score is "+total+" </br> Your Risk Level is High</p>";
+	  }
+	  
+      this.document.location.href = "#page5";
+      // alert(total);
+    }
+
+		// $(document).ready(function() {
+		// 	$("#totalScore").click(function(e) {
+		// 		e.preventDefault();
+		// 		var q1 = $("#rd-age :radio:checked").val();
+		// 		var gender = $("#rd-gender :radio:checked").val();
+		// 		var q3 = $("#rd-relation :radio:checked").val();
+		// 		var q4 = $("#rd-team :radio:checked").val();
+		// 		if (q1 == '' || gender == '' || q3 == '' || q4 == '') {
+		// 			alert("Please Fill Required Fields");
+		// 		}
+		// 		else {
+		// 			alert(q1+" - "+gender+" - "+q3+" - "+q4 );
+		// 		}
+		// 	});
+		// });
+
+	</script>
+	
    </body>
 </html>
