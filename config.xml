@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/2.0"
-        id        = "com.foodfeeding.demo"
+        id        = "com.drat.demo"
         versionCode="11" 
         version   = "2.0.0">
 
 
 
-    <name>FF--SL-Scale</name>
+    <name>Diabetes=R=A=T</name>
 
     <description>
-         Food Feeding 
+         Diabetes Risk Assesment Tool 
     </description>
 
     <author href="" email="ireshabke@gmail.com">
