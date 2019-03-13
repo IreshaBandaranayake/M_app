@@ -49,7 +49,15 @@ a div.btn{
 .ui-btn.ui-radio-on:after {
 	display:none !important;
 	}
+
+	
+
 .ui-btn.ui-radio-on {
-	background: red;
-	}
+background-color: #464646!important;
+color: white!important;
+}
+
+.page .header a.button{
+color: #fff!important; 
+}
 
