@@ -142,25 +142,69 @@ s.parentNode.insertBefore(hm, s);
        <div data-role = "header" style="background-color:#333;">
        
       <a href="index.html" data-role="button" data-theme="a" style="background-color:#333; color:#fff;">Home</a>
-          <h1><font face="" >Your Risk Level</font></h1>
+          <h1><font face="" >Low Risk Level</font></h1>
        </div>
        
        <div role = "main" class = "ui-content">
-          <div id="total"></div>
-		  <div>If you have high risklevel you have to refer.......</div>
+          <div id="total1"></div>
+		  <div>If you have low risklevel you have to refer.......</div>
+		  </br>
+		  <div> <video controls="controls">
+            <source src="media/diabetes.mp4" type="video/mp4">
+           </video></div>
        </div>
       
      
        
     </div>
+	
+	    <div data-role = "page" id = "page6">
+       <div data-role = "header" style="background-color:#333;">
+       
+      <a href="index.html" data-role="button" data-theme="a" style="background-color:#333; color:#fff;">Home</a>
+          <h1><font face="" >Intermediate Risk Level</font></h1>
+       </div>
+       
+       <div role = "main" class = "ui-content">
+          <div id="total2"></div>
+		  <div>If you have intermediate risklevel you have to refer.......</div>
+			<video controls="controls">
+            <source src="media/diabetes.mp4" type="video/mp4">
+			</video>
+       </div>
+      
+     
+       
+    </div>
+	
+		    <div data-role = "page" id = "page7">
+       <div data-role = "header" style="background-color:#333;">
+       
+      <a href="index.html" data-role="button" data-theme="a" style="background-color:#333; color:#fff;">Home</a>
+          <h1><font face="" >High Risk Level</font></h1>
+       </div>
+       
+       <div role = "main" class = "ui-content">
+          <div id="total3" autoplay="autoplay"></div>
+		  <div>If you have High risklevel you have to refer.......</div>
+			<video controls="controls">
+            <source src="media/diabetes.mp4" type="video/mp4">
+			</video>
+       </div>
+      
+     
+       
+    </div>
+	
 	   
     </div>
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
-	<!-- <script type="text/javascript" src="cordova.js"></script> -->
+	<script type="text/javascript" src="cordova.js"></script> 
 	<script>
     var total=0;
+	var risk;
     function GetValue(classname)
     {
       var radios =document.getElementsByName(classname);
@@ -182,16 +226,22 @@ s.parentNode.insertBefore(hm, s);
     {
       GetValue(classname);
 	   if(total <= 10){
-      document.getElementById("total").innerHTML = "<p>total score is "+total+" </br> Your Risk Level is Low</p>";
+	    
+      document.getElementById("total1").innerHTML = "<p>Your total score is "+total+" </br> Your Risk Level is Low</p>";
+	  this.document.location.href = "#page5";
 	  }
-	  else if(total > 10 && total <= 15){
-	  document.getElementById("total").innerHTML = "<p>total score is "+total+" </br> Your Risk Level is intermediate </p>";
+	  else if(total <= 12){
+	  
+	  document.getElementById("total2").innerHTML = "<p>Your total score is "+total+" </br> Your Risk Level is intermediate </p>";
+	  //alert(total);
+	  this.document.location.href = "#page6";
 	  }
 	  else{
-	  document.getElementById("total").innerHTML = "<p>total score is "+total+" </br> Your Risk Level is High</p>";
+	  document.getElementById("total3").innerHTML = "<p>Your total score is "+total+" </br> Your Risk Level is High</p>";
+	  this.document.location.href = "#page7";
 	  }
 	  
-      this.document.location.href = "#page5";
+      //this.document.location.href = "#page5";
       // alert(total);
     }
 
