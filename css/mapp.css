@@ -42,6 +42,11 @@ a div.btn{
 	color: #333 !important;
 }
 
+.ui-page-theme-a a:focus, html .ui-bar-a a:focus, html .ui-body-a a:focus, html body .ui-group-theme-a a:focus{
+	color: #333 !important;
+}
+
+
 .ui-btn.ui-radio-off:after{
 	display:none !important;
 }
@@ -58,6 +63,14 @@ color: white!important;
 }
 
 .page .header a.button{
-color: #fff!important; 
+color: #333!important; 
 }
+
+.ui-header .ui-title, .ui-footer .ui-title , .ui-header .ui-link{
+	background-color: #333!important;
+    color: #3333!important;
+}
+
+
+  
 
