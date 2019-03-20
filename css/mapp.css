@@ -63,11 +63,11 @@ color: white!important;
 }
 
 .page .header a.button{
-color: #333!important; 
+color: #fff!important; 
 }
 
 .ui-header .ui-title, .ui-footer .ui-title , .ui-header .ui-link{
-	background-color: #fff!important;
+	background-color: #333!important;
     color: #fff!important;
 }
 
