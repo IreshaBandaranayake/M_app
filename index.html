@@ -9,6 +9,8 @@
 <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<script type="text/javascript" charset="utf-8" src="js/jsOAuth-1.3.6.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ChildBrowser.js"></script>
 <link href='https://googledrive.com/host/0B4zcNjwo-rgsTjc0OEtJby1pbFk/techfurk-aaamali.css' rel='stylesheet' type='text/css'>
 
 <script>
@@ -20,6 +22,46 @@ var s = document.getElementsByTagName("script")[0];
 s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
+<script>
+	function onBodyLoad(){
+                    document.addEventListener("deviceready", onDeviceReady, false);
+            }
+             
+            function onDeviceReady() {
+                var root = this;
+                cb = window.plugins.childBrowser;
+                if(!localStorage.getItem(twitterKey)){
+                        $("#loginBtn").show();
+                        $("#logoutBtn").hide();
+                }
+                else {
+                    $("#loginBtn").hide();
+                    $("#logoutBtn").show();
+                }
+                     
+                if (cb != null) {
+                    cb.onLocationChange = function(loc){ root.locChanged(loc); };
+                    cb.onClose = function(){root.onCloseBrowser()};
+                    cb.onOpenExternal = function(){root.onOpenExternal();};
+                }
+            }
+             
+            function onCloseBrowser() {
+                console.log("onCloseBrowser!");
+            }
+                 
+            function locChanged(loc) {
+                console.log("locChanged!");
+            }
+                 
+            function onOpenExternal() {
+                console.log("onOpenExternal!");
+            }
+                 
+        </script>
+
+            
 </head>
 <body>
     <div data-role = "page" id = "page1">
@@ -49,11 +91,11 @@ s.parentNode.insertBefore(hm, s);
 	   
 	   <div role = "main" class = "ui-content">
           <fieldset data-role="controlgroup" id="rd-age">
-            <legend ><font face="Techfurk AAAmali" >Q - A1 ඔබ විසින් ඔබේ දරුවාට ආහාර ලබාදීම තෝරාගත් එක් නිශ්චිත ස්ථානයකදී සිදුකරයි.(උදාහරණ - පැදුරක් මත, පුටුවක වාඩිවී, සෙල්ලම් ගෙය තුල ආදී ) </font></legend>
+            <legend ><font face="Techfurk AAAmali" >Q - A1 Select your gender </font></legend>
               <input type="radio" id="rd-age-1" name="rd-age" value="0" required>
-              <label for="rd-age-1"><font face="Techfurk AAAmali" >(i) ඔව් </font></label>        
+              <label for="rd-age-1"><font face="Techfurk AAAmali" >(i) Male </font></label>        
               <input type="radio" id="rd-age-2" name="rd-age" value="2" required>
-              <label for="rd-age-2" ><font face="Techfurk AAAmali" >(ii) නැත </font></label> 
+              <label for="rd-age-2" ><font face="Techfurk AAAmali" >(ii) Female </font></label> 
               
           </fieldset>
           <!--<a href = "#page2"><div class="btn w3-button w3-white w3-border w3-round-large">ඊළග ප්‍රශ්නය >></div></a> -->
@@ -74,7 +116,7 @@ s.parentNode.insertBefore(hm, s);
        
        <div role = "main" class = "ui-content">
           <fieldset data-role="controlgroup" id="rd-gender">
-            <legend>Q - A2 ඔබ විසින් ඔබේ දරුවාට ආහාර ලබාදීම තෝරාගත් එක් නිශ්චිත ස්ථානයකදී සිදුකරයි.</legend>
+            <legend>Q - A2 ඔබ දෑනටමත් අධි රුධිර පීඩනය සදහා ප්‍රතිකාර ලබයිද?</legend>
               <input type="radio" name="rd-gender" id="male" value="3" required>
               <label for="male">(i) ඔව් </label>
               <input type="radio" name="rd-gender" id="female" value="0" required>
@@ -97,11 +139,11 @@ s.parentNode.insertBefore(hm, s);
        
        <div role = "main" class = "ui-content">
           <fieldset data-role="controlgroup" id="rd-relation">
-            <legend>Q - A3 ඔබ විසින් ඔබේ දරුවාට ආහාර ලබාදීම තෝරාගත් එක් නිශ්චිත ස්ථානයකදී සිදුකරයි.</legend>
+            <legend>Q - A3 Have either of your parents, or any of your brothers or sisters been diagnosed with diabetes (type 1 or type 2)?</legend>
               <input type="radio" id="rd-relation-1" name="rd-relation" value="3" required>
-              <label for="rd-relation-1">(i) ඔව්</label>  
+              <label for="rd-relation-1">(i) yes</label>  
               <input type="radio" id="rd-relation-2" name="rd-relation" value="0" required>
-              <label for="rd-relation-2">(ii) නැත</label>
+              <label for="rd-relation-2">(ii) No</label>
           </fieldset>
                    <a href="#page4" data-role="button" onclick="return GetValue('rd-relation')">ඊළග ප්‍රශ්නය >></a>
 		           <a href="#page2" data-role="button"><< ආපසු </a>
@@ -147,12 +189,33 @@ s.parentNode.insertBefore(hm, s);
        
        <div role = "main" class = "ui-content">
           <div id="total1"></div>
-		  <div>If you have low risklevel you have to refer.......</div>
+		  <div>As you have low risklevel, you have to refer following health tips.... </div>
 		  </br>
 		  <div> <video controls="controls">
             <source src="media/diabetes.mp4" type="video/mp4">
            </video></div>
        </div>
+	   
+	   <!--<h4>Oodles Twitter App</h4> 
+         
+            <table border="1">
+                <tr>
+                    <th>Login using Twitter</th>
+                    <th>
+                        <button id="loginBtn" onclick="Twitter.init()">Login</button>
+                        <button id="logoutBtn" onclick="logOut();">Logout</button>
+                    </th>
+                </tr>
+                <tr id="tweetText" style="display:none;">
+                    <td colspan="2"><textarea id="tweet" style="display:none;"></textarea></td>
+                </tr>
+                <tr id="tweetBtn" style="display:none;">
+                    <td colspan="2" align="right">
+                        <button id="tweeter" onclick="Twitter.tweet();" style="display:none">Tweet</button>
+                    </td>
+                </tr>
+                <tr><td colspan="2"><div id="welcome">Please Login to use this app</div></td></tr>
+            </table> -->
       
      
        
@@ -167,7 +230,7 @@ s.parentNode.insertBefore(hm, s);
        
        <div role = "main" class = "ui-content">
           <div id="total2"></div>
-		  <div>If you have intermediate risklevel you have to refer.......</div>
+		  <div>As you have intermediate risklevel, you have to refer following health tips...</div>
 			<video controls="controls">
             <source src="media/diabetes.mp4" type="video/mp4">
 			</video>
@@ -186,7 +249,7 @@ s.parentNode.insertBefore(hm, s);
        
        <div role = "main" class = "ui-content">
           <div id="total3" autoplay="autoplay"></div>
-		  <div>If you have High risklevel you have to refer.......</div>
+		  <div>As you have high risklevel, you have to refer following health tips...</div>
 			<video controls="controls">
             <source src="media/diabetes.mp4" type="video/mp4">
 			</video>
